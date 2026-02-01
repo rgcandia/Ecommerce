@@ -114,3 +114,19 @@
   padding: 100px;
   font-size: 1.2rem;
 }
+
+
+.imageLink {
+  display: block;
+  text-decoration: none;
+  overflow: hidden;
+}
+
+.nameLink {
+  text-decoration: none;
+  color: inherit; /* Mantiene el color negro que ya definiste */
+}
+
+.nameLink:hover {
+  color: #00a650; /* Un efecto sutil de color al pasar el mouse por el nombre */
+}

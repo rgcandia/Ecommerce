@@ -2,9 +2,8 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App.jsx';
 import Tienda from './pages/Tienda/Tienda.jsx';
 import Carrito from './pages/Carrito/Carrito.jsx';
+import Detalle from './pages/Detalle/Detalle.jsx';
 // Componentes que crearás a continuación
-
-const ProductoDetalle = () => <div><h2>Detalle del Producto</h2></div>;
 
 const Contacto = () => <div><h2>Contacto</h2></div>;
 
@@ -14,7 +13,7 @@ const router = createBrowserRouter([
     element: <App />, // Este será tu Layout principal
     children: [
       { index: true, element: <Tienda /> }, 
-      { path: "producto/:id", element: <ProductoDetalle /> },
+      { path: "producto/:id", element: <Detalle /> },
       { path: "carrito", element: <Carrito /> },
       { path: "contacto", element: <Contacto /> }
     ]
