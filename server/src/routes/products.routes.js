@@ -16,8 +16,18 @@ router.get('/', async (req, res) => {
 // POST /products - Crear un producto (para cargar tu catálogo)
 router.post('/', async (req, res) => {
   try {
-    const { title, price, image } = req.body;
-    const newProduct = await Product.create({ title, price, image });
+    // 1. Extraemos 'name' (NO 'title') porque así se llama en tu modelo
+    const { name, price, description, image, stock } = req.body;
+
+    // 2. Pasamos 'name' al método create
+    const newProduct = await Product.create({ 
+      name, 
+      price, 
+      description, 
+      image, 
+      stock 
+    });
+
     res.status(201).json(newProduct);
   } catch (error) {
     res.status(400).json({ message: error.message });
