@@ -126,3 +126,73 @@
     gap: 1rem;
   }
 }
+
+/* ... (todo tu código anterior se mantiene igual hasta las Media Queries) */
+
+.main {
+  flex: 1;
+  width: 100%;
+  /* Eliminamos el max-width fijo para que no choque con los componentes */
+  max-width: none; 
+  margin: 0 auto;
+  padding: 40px 20px;
+  box-sizing: border-box; /* Importante para que el padding no rompa el ancho */
+}
+
+/* --- RESPONSIVE APP --- */
+
+@media (max-width: 768px) {
+  .header {
+    padding: 1rem; /* Reducimos espacio en tablets/móviles */
+  }
+
+  .nav {
+    flex-direction: column; /* Apilamos logo y links */
+    gap: 15px;
+  }
+
+  .logo {
+    font-size: 1.2rem; /* Logo un poco más pequeño */
+  }
+
+  .navLinks {
+    width: 100%;
+    justify-content: center; /* Centramos los links */
+    gap: 1rem;
+    flex-wrap: wrap; /* Si hay muchos links, que bajen a la siguiente línea */
+  }
+
+  .link {
+    font-size: 0.8rem; /* Texto de navegación más pequeño */
+  }
+
+  .cartLink {
+    padding: 6px 12px; /* Botón de carrito más compacto */
+  }
+}
+
+@media (max-width: 480px) {
+  .main {
+    padding: 20px 15px; /* Menos espacio lateral en celulares pequeños */
+  }
+
+  /* Si el texto "Carrito" es muy largo, podemos ocultarlo y dejar solo el emoji en móviles muy chicos */
+  .cartLink span:not(.cartBadge) {
+    display: none; 
+  }
+  
+  .cartLink {
+    gap: 5px;
+    padding: 8px;
+  }
+
+  .footer {
+    padding: 2rem 1rem;
+  }
+}
+/* App.module.css */
+@media (max-width: 600px) {
+  .main {
+    padding: 20px 10px; /* Menos espacio en los bordes de la pantalla */
+  }
+}

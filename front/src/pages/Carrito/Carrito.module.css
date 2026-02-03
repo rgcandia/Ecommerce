@@ -194,3 +194,105 @@
   background: var(--color-dark);
   color: var(--white);
 }
+
+/* Botón para seguir comprando dentro del resumen */
+.continueShopping {
+  display: block;
+  text-align: center;
+  margin-top: 15px;
+  padding: 12px;
+  color: var(--color-sage);
+  text-decoration: none;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  border: 1px solid var(--color-slate);
+  transition: all 0.3s ease;
+}
+
+.continueShopping:hover {
+  color: var(--color-gold);
+  border-color: var(--color-gold);
+  background-color: rgba(221, 200, 145, 0.05); /* Un toque sutil de dorado */
+}
+
+/* Ajuste opcional: Si quieres que el botón "Vaciar Carrito" se vea menos llamativo */
+.clearCartBtn {
+  align-self: flex-start;
+  margin-top: 20px;
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--color-sage);
+  color: var(--color-steel);
+  padding: 5px 0;
+  cursor: pointer;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.2s;
+}
+
+.clearCartBtn:hover {
+  color: #ff4d4d;
+  border-color: #ff4d4d;
+}
+
+
+
+/* --- RESPONSIVE DESIGN --- */
+
+
+/* Tablets y pantallas medianas (menos de 992px) */
+@media (max-width: 992px) {
+  .layout {
+    grid-template-columns: 1fr; /* Una sola columna */
+    gap: 30px;
+  }
+
+  .summary {
+    position: static; /* Quita el sticky */
+    width: 100%;      /* Ocupa todo el ancho */
+    max-width: 100%;  /* Evita que se limite por el ancho de 350px previo */
+    margin: 0 auto;   /* Lo centra perfectamente */
+    box-sizing: border-box; /* Asegura que el padding no lo "empuje" a la derecha */
+    border-radius: 0; /* Opcional: quitar redondeado para que parezca un bloque de cierre */
+  }
+}
+
+/* Celulares (menos de 600px) */
+@media (max-width: 600px) {
+  .container {
+    padding: 0 15px; /* Reducimos margen del contenedor principal para ganar espacio */
+  }
+
+  .title {
+    font-size: 1.6rem;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .item {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+    padding: 20px 10px;
+  }
+
+  .itemImage {
+    width: 100px;
+    height: 100px;
+  }
+
+  /* Aseguramos que el resumen se vea imponente en móvil */
+  .summary {
+    padding: 30px 20px;
+    margin-top: 10px;
+    /* Quitamos cualquier margen que lo desplace */
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .payButton {
+    padding: 20px; /* Botón más grande para el pulgar */
+  }
+}

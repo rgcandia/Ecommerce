@@ -61,6 +61,7 @@ const Carrito = () => {
           </button>
         </div>
 
+
         <aside className={styles.summary}>
           <h2 className={styles.summaryTitle}>Resumen</h2>
           <div className={styles.summaryRow}>
@@ -75,13 +76,20 @@ const Carrito = () => {
             <span>Total:</span>
             <span>${totalPrice.toLocaleString()}</span>
           </div>
+
           <button 
             className={styles.payButton}
             onClick={handlePayment}
           >
             Finalizar Compra
           </button>
+
+          {/* NUEVO BOTÓN PARA VOLVER */}
+          <Link to="/" className={styles.continueShopping}>
+            Continuar Comprando
+          </Link>
         </aside>
+
       </div>
     </div>
   );
