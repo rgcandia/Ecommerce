@@ -134,3 +134,36 @@
     grid-template-columns: 1fr;
   }
 }
+.quantityControls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-right: 20px;
+}
+
+.qtyBtn {
+  background: #eee;
+  border: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.qtyBtn:hover {
+  background: #ddd;
+}
+
+.qtyNumber {
+  font-weight: 600;
+  min-width: 20px;
+  text-align: center;
+}
+
+.subtotal {
+  font-size: 0.85rem;
+  color: #00a650;
+  font-weight: 600;
+  margin-top: 4px;
+}

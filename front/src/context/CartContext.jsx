@@ -31,9 +31,24 @@ export const CartProvider = ({ children }) => {
   }, []);
 
   // Eliminar un producto por ID
-  const removeFromCart = useCallback((id) => {
-    setCart((prev) => prev.filter((item) => item.id !== id));
-  }, []);
+const removeFromCart = useCallback((id, removeAll = false) => {
+  setCart((prev) => {
+    const product = prev.find(item => item.id === id);
+    
+    // Si no existe el producto, no hacemos nada
+    if (!product) return prev;
+
+    // Si pedimos borrar todo o si solo queda 1 unidad, filtramos el ID
+    if (removeAll || product.quantity === 1) {
+      return prev.filter((item) => item.id !== id);
+    }
+
+    // Si hay más de 1, restamos 1 a la cantidad
+    return prev.map((item) =>
+      item.id === id ? { ...item, quantity: item.quantity - 1 } : item
+    );
+  });
+}, []);
 
   // Limpiar carrito
   const clearCart = useCallback(() => setCart([]), []);

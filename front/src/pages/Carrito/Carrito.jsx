@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 import styles from './Carrito.module.css';
 
 const Carrito = () => {
-  const { cart, removeFromCart, totalPrice, clearCart } = useCart();
+  // AGREGAMOS 'addToCart' AQUÍ ABAJO (esto era lo que faltaba)
+  const { cart, addToCart, removeFromCart, totalPrice, totalItems, clearCart } = useCart();
 
   const handlePayment = async () => {
-    // Aquí es donde llamaremos a tu backend para Mercado Pago más adelante
     alert('Redirigiendo a Mercado Pago...');
     console.log('Productos a pagar:', cart);
   };
@@ -27,33 +27,48 @@ const Carrito = () => {
       <h1 className={styles.title}>Tu Carrito</h1>
       
       <div className={styles.layout}>
-        {/* Lado Izquierdo: Lista de items */}
         <div className={styles.itemsList}>
           {cart.map((item) => (
             <div key={item.id} className={styles.item}>
               <img src={item.image} alt={item.name} className={styles.itemImage} />
+              
               <div className={styles.itemInfo}>
                 <p className={styles.itemName}>{item.name}</p>
-                <p className={styles.itemPrice}>${Number(item.price).toLocaleString()}</p>
+                <p className={styles.itemPrice}>
+                  ${Number(item.price).toLocaleString()} x {item.quantity} units
+                </p>
+                <p className={styles.subtotal}>
+                  Subtotal: ${(item.price * item.quantity).toLocaleString()}
+                </p>
               </div>
+
+              <div className={styles.quantityControls}>
+                {/* Botón menos: resta 1 o elimina si es el último */}
+                <button onClick={() => removeFromCart(item.id)} className={styles.qtyBtn}>-</button>
+                <span className={styles.qtyNumber}>{item.quantity}</span>
+                {/* Botón más: ahora sí tiene la función addToCart disponible */}
+                <button onClick={() => addToCart(item)} className={styles.qtyBtn}>+</button>
+              </div>
+
               <button 
                 className={styles.removeBtn}
-                onClick={() => removeFromCart(item.id)}
+                onClick={() => removeFromCart(item.id, true)}
               >
-                Eliminar
+                Eliminar todo
               </button>
             </div>
           ))}
-          <button onClick={clearCart} style={{marginTop: '10px', background: 'none', border: 'none', color: '#888', cursor: 'pointer', textAlign: 'left'}}>
+          
+          <button onClick={clearCart} className={styles.removeBtn}>
             Vaciar carrito
           </button>
         </div>
 
-        {/* Lado Derecho: Resumen y Pago */}
         <aside className={styles.summary}>
           <h2 className={styles.summaryTitle}>Resumen de compra</h2>
           <div className={styles.summaryRow}>
-            <span>Productos ({cart.length})</span>
+            {/* Usamos totalItems para mostrar la cantidad real de unidades */}
+            <span>Productos ({totalItems})</span>
             <span>${totalPrice.toLocaleString()}</span>
           </div>
           <div className={`${styles.summaryRow} ${styles.total}`}>
