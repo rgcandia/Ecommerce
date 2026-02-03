@@ -5,22 +5,21 @@ import { useCart } from '../../context/CartContext';
 import styles from './Detalle.module.css';
 
 const Detalle = () => {
-  const { id } = useParams(); // Obtiene el "id" de la URL
-  const navigate = useNavigate(); // Para el botón de volver
+  const { id } = useParams();
+  const navigate = useNavigate();
   const { products, loading } = useProducts();
   const { addToCart } = useCart();
 
-  // Buscamos el producto en la lista que ya tenemos en memoria
   const product = products.find(p => String(p.id) === id);
 
-  if (loading) return <div className={styles.status}>Cargando producto...</div>;
+  if (loading) return <div className={styles.status}>Preparando detalles...</div>;
 
   if (!product) {
     return (
       <div className={styles.status}>
-        <h2>Producto no encontrado</h2>
+        <h2>Pieza no encontrada</h2>
         <button onClick={() => navigate('/')} className={styles.backBtn}>
-          Volver a la tienda
+          Regresar al catálogo
         </button>
       </div>
     );
@@ -29,23 +28,23 @@ const Detalle = () => {
   return (
     <div className={styles.container}>
       <button onClick={() => navigate(-1)} className={styles.backLink}>
-        ← Volver atrás
+        ← Volver
       </button>
 
       <div className={styles.layout}>
-        {/* Imagen del producto */}
+        {/* Sección de Imagen */}
         <div className={styles.imageSection}>
           <img src={product.image} alt={product.name} className={styles.mainImg} />
         </div>
 
-        {/* Información y compra */}
+        {/* Sección de Información */}
         <div className={styles.infoSection}>
-          <span className={styles.badge}>Nuevo Ingreso</span>
+          <span className={styles.badge}>Edición Exclusiva</span>
           <h1 className={styles.title}>{product.name}</h1>
           <p className={styles.price}>${Number(product.price).toLocaleString()}</p>
           
           <div className={styles.description}>
-            <h3>Sobre este artículo</h3>
+            <h3>Descripción</h3>
             <p>{product.description}</p>
           </div>
 
@@ -53,12 +52,13 @@ const Detalle = () => {
             className={styles.buyButton}
             onClick={() => addToCart(product)}
           >
-            Añadir al carrito
+            Añadir a mi selección
           </button>
 
           <div className={styles.features}>
-            <span>🚚 Envío gratis a todo el país</span>
-            <span>🛡️ Garantía oficial de 12 meses</span>
+            <span><i className={styles.icon}>✦</i> Envío de cortesía en todas las compras</span>
+            <span><i className={styles.icon}>✦</i> Empaque premium para regalo incluido</span>
+            <span><i className={styles.icon}>✦</i> Certificado de autenticidad</span>
           </div>
         </div>
       </div>

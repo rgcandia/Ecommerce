@@ -8,106 +8,148 @@
 .backLink {
   background: none;
   border: none;
-  color: #666;
+  color: var(--color-slate);
   cursor: pointer;
-  font-weight: 600;
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
+  font-weight: 500;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.8rem;
   transition: color 0.2s;
 }
 
 .backLink:hover {
-  color: #00a650;
+  color: var(--color-gold);
 }
 
 .layout {
   display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 60px;
-  align-items: start;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 80px;
+  align-items: center;
 }
 
 .imageSection {
-  background: #fff;
-  border-radius: 20px;
-  padding: 20px;
-  border: 1px solid #eee;
+  background: var(--white);
+  padding: 0;
+  border: 1px solid #f0f0f0;
   display: flex;
   justify-content: center;
+  overflow: hidden;
 }
 
 .mainImg {
   max-width: 100%;
   height: auto;
-  border-radius: 12px;
-  object-fit: contain;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.mainImg:hover {
+  transform: scale(1.03);
 }
 
 .badge {
-  color: #00a650;
-  font-weight: 700;
-  font-size: 0.8rem;
+  color: var(--color-bronze);
+  font-weight: 600;
+  font-size: 0.75rem;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
+  display: block;
+  margin-bottom: 10px;
 }
 
 .title {
-  font-size: 2.5rem;
-  margin: 10px 0;
-  color: #1a1a1a;
+  font-size: 2.8rem;
+  font-weight: 300; /* Fina y elegante */
+  margin: 0 0 15px 0;
+  color: var(--color-dark);
+  text-transform: uppercase;
+  line-height: 1.1;
 }
 
 .price {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #1a1a1a;
-  margin-bottom: 30px;
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: var(--color-olive-dark);
+  margin-bottom: 35px;
 }
 
 .description {
   border-top: 1px solid #eee;
-  padding-top: 20px;
-  color: #555;
-  line-height: 1.6;
+  padding-top: 25px;
+  color: var(--color-slate);
+  line-height: 1.8;
+}
+
+.description h3 {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+  color: var(--color-dark);
 }
 
 .buyButton {
   width: 100%;
-  margin-top: 30px;
-  background-color: #1a1a1a;
-  color: white;
-  border: none;
-  padding: 18px;
-  border-radius: 12px;
-  font-size: 1.1rem;
+  margin-top: 40px;
+  background-color: var(--color-dark);
+  color: var(--color-gold); /* Letras doradas sobre fondo oscuro */
+  border: 1px solid var(--color-dark);
+  padding: 20px;
+  font-size: 1rem;
   font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
   cursor: pointer;
-  transition: transform 0.2s, background 0.2s;
+  transition: all 0.3s ease;
 }
 
 .buyButton:hover {
-  background-color: #333;
-  transform: translateY(-2px);
+  background-color: var(--color-gold);
+  color: var(--color-dark);
+  border-color: var(--color-gold);
 }
 
 .features {
   margin-top: 40px;
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  font-size: 0.9rem;
-  color: #666;
+  gap: 12px;
+  font-size: 0.85rem;
+  color: var(--color-steel);
+}
+
+.icon {
+  color: var(--color-gold);
+  margin-right: 8px;
+  font-style: normal;
 }
 
 .status {
   text-align: center;
-  padding: 100px;
+  padding: 150px;
+  color: var(--color-bronze);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.backBtn {
+  margin-top: 20px;
+  padding: 10px 25px;
+  background: var(--color-dark);
+  color: var(--color-gold);
+  border: none;
+  cursor: pointer;
 }
 
 @media (max-width: 900px) {
   .layout {
     grid-template-columns: 1fr;
-    gap: 30px;
+    gap: 40px;
+  }
+  
+  .title {
+    font-size: 2rem;
   }
 }
