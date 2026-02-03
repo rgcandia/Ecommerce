@@ -1,24 +1,23 @@
 /* App.module.css */
 
-/* Contenedor principal para asegurar que el footer siempre esté abajo */
 .appContainer {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  background-color: #fcfcfc;
-  color: #1a1a1a;
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: var(--bg-page);
+  color: var(--color-dark);
 }
 
-/* Header pegajoso (Sticky) con estilo oscuro premium */
+/* Header Premium */
 .header {
-  background-color: #1a1a1a;
-  color: white;
+  background-color: var(--color-dark); /* Tu gris oscuro */
+  border-bottom: 2px solid var(--color-gold); /* Una línea dorada fina elegante */
   padding: 0.8rem 2rem;
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .nav {
@@ -29,103 +28,100 @@
   align-items: center;
 }
 
-/* Logo con estilo moderno */
 .logo {
   font-size: 1.4rem;
   font-weight: 800;
-  letter-spacing: -1px;
-  color: white;
+  letter-spacing: 1px;
+  color: var(--white);
   text-decoration: none;
-  display: flex;
-  align-items: center;
+  text-transform: uppercase;
 }
 
 .logo span {
-  color: #00a650; /* Un toque de color verde para el "Store" */
+  color: var(--color-gold); /* EL "VALU" en dorado */
 }
 
-/* Contenedor de links */
 .navLinks {
   display: flex;
   gap: 1.5rem;
   align-items: center;
 }
 
-/* Estilo base para todos los links de navegación */
 .link {
-  color: #a0a0a0;
+  color: var(--color-sage); /* Un tono suave para links inactivos */
   text-decoration: none;
   font-size: 0.9rem;
   font-weight: 500;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .link:hover {
-  color: white;
+  color: var(--color-gold); /* Al pasar el mouse se pone dorado */
 }
 
-/* Estilo específico para resaltar el link del carrito */
+/* Botón Carrito */
 .cartLink {
   display: flex;
   align-items: center;
   gap: 10px;
-  background: #333;
+  background: transparent;
+  border: 1px solid var(--color-gold); /* Borde dorado fino */
   padding: 8px 16px;
-  border-radius: 50px;
-  color: white;
+  border-radius: 0; /* Bordes cuadrados son más elegantes */
+  color: var(--color-gold);
 }
 
 .cartLink:hover {
-  background: #444;
-  transform: translateY(-1px);
+  background: var(--color-gold);
+  color: var(--color-dark); /* Invierte colores al pasar el mouse */
 }
 
-/* El círculo del contador (Badge) */
+/* El contador (Badge) */
 .cartBadge {
-  background-color: #00a650;
-  color: white;
-  font-size: 0.7rem;
+  background-color: var(--white);
+  color: var(--color-dark);
+  font-size: 0.75rem;
   font-weight: 700;
-  padding: 2px 7px;
+  padding: 2px 6px;
   border-radius: 50%;
-  min-width: 18px;
-  height: 18px;
+  min-width: 20px;
+  height: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* Contenedor principal de contenido */
 .main {
   flex: 1;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 40px 20px;
 }
 
-/* Footer limpio y minimalista */
+/* Footer Oscuro */
 .footer {
-  background-color: #ffffff;
-  border-top: 1px solid #eaeaea;
+  background-color: var(--color-dark);
+  border-top: 4px solid var(--color-bronze);
   padding: 3rem 1rem;
   text-align: center;
   margin-top: 50px;
+  color: var(--color-sage);
 }
 
 .footer p {
   margin: 5px 0;
-  color: #888;
   font-size: 0.85rem;
+  letter-spacing: 1px;
 }
 
-/* Responsive: Ajustes para móviles */
 @media (max-width: 600px) {
   .nav {
     flex-direction: column;
     gap: 1rem;
   }
-  
   .navLinks {
     gap: 1rem;
   }

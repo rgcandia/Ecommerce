@@ -1,0 +1,21 @@
+/* index.css */
+:root {
+  /* --- TU PALETA DE COLORES --- */
+  --color-gold: #ddc891;        /* Color principal de acento (Botones, detalles) */
+  --color-dark: #2c3132;        /* Color principal oscuro (Header, Textos fuertes) */
+  --color-bronze: #847654;      /* Variación oscura del dorado (Bordes, hovers) */
+  --color-slate: #495455;       /* Gris azulado (Subtítulos, detalles técnicos) */
+  --color-olive-dark: #5a523d;  /* Fondo oscuro secundario */
+  --color-sage: #9a9c81;        /* Verde grisáceo suave (Fondos suaves) */
+  --color-steel: #565d64;       /* Gris acero (Iconos inactivos) */
+  --color-forest: #646d55;      /* Verde bosque (Detalles naturales) */
+
+  /* --- UTILIDADES --- */
+  --bg-page: #f8f8f6;           /* Un blanco roto muy suave para el fondo general */
+  --white: #ffffff;
+}
+
+body {
+  background-color: var(--bg-page);
+  color: var(--color-dark);
+}
